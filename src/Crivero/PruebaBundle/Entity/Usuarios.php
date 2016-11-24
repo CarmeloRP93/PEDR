@@ -1,12 +1,9 @@
 <?php
-
 namespace Crivero\PruebaBundle\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-
 /**
  * Usuarios
  *
@@ -16,8 +13,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @UniqueEntity("email")
  * @ORM\HasLifecycleCallbacks()
  */
-
-class Usuarios implements UserInterface
+class Usuarios implements AdvancedUserInterface, \Serializable
 {
     /**
      * @var integer
@@ -28,13 +24,6 @@ class Usuarios implements UserInterface
      */
     private $id;
  
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="sexo", type="string", length=200)
-     */
-    
-    
     /**
      * @var string
      *
@@ -54,20 +43,11 @@ class Usuarios implements UserInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="imagen", type="string", length=255)
-     * @Assert\NotBlank()
-     */
-    private $imagen;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="email", type="string", length=200)
      * @Assert\NotBlank()
      * @Assert\Email()
      */
     private $email;
-
     /**
      * @var integer
      *
@@ -76,7 +56,6 @@ class Usuarios implements UserInterface
      * @Assert\Choice(choices = {1, 2, 3})
      */
     private $tipo;
-
     /**
      * @var string
      *
@@ -84,7 +63,6 @@ class Usuarios implements UserInterface
      * @Assert\NotBlank()
      */
     private $telefono;
-
     /**
      * @var string
      *
@@ -205,7 +183,6 @@ class Usuarios implements UserInterface
     {
         return $this->id;
     }
-
     /**
      * Set nombre
      *
@@ -215,10 +192,8 @@ class Usuarios implements UserInterface
     public function setNombre($nombre)
     {
         $this->nombre = $nombre;
-
         return $this;
     }
-
     /**
      * Get nombre
      *
@@ -238,10 +213,8 @@ class Usuarios implements UserInterface
     public function setPassword($password)
     {
         $this->password= $password;
-
         return $this;
     }
-
     /**
      * Get password
      *
@@ -253,29 +226,6 @@ class Usuarios implements UserInterface
     }
     
     /**
-     * Set imagen
-     *
-     * @param string $imagen
-     * @return Usuarios
-     */
-    public function setImagen($imagen)
-    {
-        $this->imagen = $imagen;
-
-        return $this;
-    }
-
-    /**
-     * Get imagen
-     *
-     * @return string 
-     */
-    public function getImagen()
-    {
-        return $this->imagen;
-    }
-
-    /**
      * Set email
      *
      * @param string $email
@@ -284,10 +234,8 @@ class Usuarios implements UserInterface
     public function setEmail($email)
     {
         $this->email = $email;
-
         return $this;
     }
-
     /**
      * Get email
      *
@@ -297,7 +245,6 @@ class Usuarios implements UserInterface
     {
         return $this->email;
     }
-
     /**
      * Set tipo
      *
@@ -307,10 +254,8 @@ class Usuarios implements UserInterface
     public function setTipo($tipo)
     {
         $this->tipo = $tipo;
-
         return $this;
     }
-
     /**
      * Get tipo
      *
@@ -320,7 +265,6 @@ class Usuarios implements UserInterface
     {
         return $this->tipo;
     }
-
     /**
      * Set telefono
      *
@@ -330,10 +274,8 @@ class Usuarios implements UserInterface
     public function setTelefono($telefono)
     {
         $this->telefono = $telefono;
-
         return $this;
     }
-
     /**
      * Get telefono
      *
@@ -343,21 +285,57 @@ class Usuarios implements UserInterface
     {
         return $this->telefono;
     }
-
     public function eraseCredentials() {
         
     }
-
-    public function getRoles() {
-        
+    
+    public function getRoles()
+    {
+        if ($this->getTipo() == 1) {
+            return array('ROLE_ADMIN');
+        }else{
+            return array('ROLE_USER');
+        }
     }
-
+    
     public function getSalt() {
-        
+        return null;
     }
-
     public function getUsername() {
-        
+        return $this->nombre;
     }
-
+    public function isAccountNonExpired() {
+        return true;
+    }
+    public function isCredentialsNonExpired() {
+        return true;
+    }
+   
+    public function isAccountNonLocked()
+    {
+        return true;
+    }
+    
+    public function isEnabled() {
+        return true;
+    }
+    
+    public function serialize() {
+         return serialize(array(
+            $this->id,
+            $this->nombre,
+            $this->password
+        ));
+    }
+    
+    /** @see \Serializable::unserialize() */
+    public function unserialize($serialized) {
+         list (
+            $this->id,
+            $this->nombre,
+            $this->password,
+        ) = unserialize($serialized);
+    }
+    
+    
 }

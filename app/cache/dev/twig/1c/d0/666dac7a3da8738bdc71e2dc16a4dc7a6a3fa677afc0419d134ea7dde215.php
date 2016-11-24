@@ -98,19 +98,28 @@ class __TwigTemplate_1cd0666dac7a3da8738bdc71e2dc16a4dc7a6a3fa677afc0419d134ea7d
         // line 31
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["sesion"]) ? $context["sesion"] : $this->getContext($context, "sesion")), "repeticiones", array()), "html", null, true);
         echo " por ejercicio</p>
+                        <h4>Nº de participantes:</h4> <p>";
+        // line 32
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["sesion"]) ? $context["sesion"] : $this->getContext($context, "sesion")), "nClientes", array()), "html", null, true);
+        echo "</p>
+                        
                     </div>
                     <div id=\"colder\" class=\"col-md-4\">
                         <h4>Tiempo estimado:</h4> <p>";
-        // line 34
+        // line 36
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["sesion"]) ? $context["sesion"] : $this->getContext($context, "sesion")), "duracion", array()), "html", null, true);
         echo " minutos</p>
                         <h4>Descanso entre ejercicios:</h4> <p>";
-        // line 35
+        // line 37
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["sesion"]) ? $context["sesion"] : $this->getContext($context, "sesion")), "descanso", array()), "html", null, true);
         echo " minutos</p>
                         <h4>Objetivo:</h4> <p>";
-        // line 36
+        // line 38
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["sesion"]) ? $context["sesion"] : $this->getContext($context, "sesion")), "objetivo", array()), "html", null, true);
+        echo "</p>
+                        <h4>Límite de participantes:</h4> <p>";
+        // line 39
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["sesion"]) ? $context["sesion"] : $this->getContext($context, "sesion")), "lClientes", array()), "html", null, true);
         echo "</p>
                     </div>
            </div>
@@ -131,6 +140,6 @@ class __TwigTemplate_1cd0666dac7a3da8738bdc71e2dc16a4dc7a6a3fa677afc0419d134ea7d
 
     public function getDebugInfo()
     {
-        return array (  113 => 36,  109 => 35,  105 => 34,  99 => 31,  95 => 30,  91 => 29,  86 => 26,  80 => 22,  73 => 17,  71 => 16,  65 => 13,  56 => 7,  52 => 6,  48 => 4,  45 => 3,  37 => 2,  11 => 1,);
+        return array (  122 => 39,  118 => 38,  114 => 37,  110 => 36,  103 => 32,  99 => 31,  95 => 30,  91 => 29,  86 => 26,  80 => 22,  73 => 17,  71 => 16,  65 => 13,  56 => 7,  52 => 6,  48 => 4,  45 => 3,  37 => 2,  11 => 1,);
     }
 }

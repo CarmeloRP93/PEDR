@@ -229,7 +229,28 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             // crivero_prueba_home
             if ($pathinfo === '/home') {
-                return array (  '_controller' => 'Crivero\\PruebaBundle\\Controller\\HomeController::homeAction',  '_route' => 'crivero_prueba_home',);
+                return array (  '_controller' => 'Crivero\\PruebaBundle\\Controller\\ClienteController::homeAction',  '_route' => 'crivero_prueba_home',);
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/log')) {
+            if (0 === strpos($pathinfo, '/login')) {
+                // crivero_prueba_login
+                if ($pathinfo === '/login') {
+                    return array (  '_controller' => 'Crivero\\PruebaBundle\\Controller\\SecurityController::loginAction',  '_route' => 'crivero_prueba_login',);
+                }
+
+                // crivero_prueba_login_check
+                if ($pathinfo === '/login_check') {
+                    return array (  '_controller' => 'Crivero\\PruebaBundle\\Controller\\SecurityController::loginCheckAction',  '_route' => 'crivero_prueba_login_check',);
+                }
+
+            }
+
+            // crivero_prueba_logout
+            if ($pathinfo === '/logout') {
+                return array('_route' => 'crivero_prueba_logout');
             }
 
         }
@@ -333,6 +354,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             }
 
         }
+
+        // crivero_prueba_aceptarSesion
+        if (0 === strpos($pathinfo, '/aceptarSesion') && preg_match('#^/aceptarSesion/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            if (!in_array($this->context->getMethod(), array('POST', 'PUT', 'GET', 'HEAD'))) {
+                $allow = array_merge($allow, array('POST', 'PUT', 'GET', 'HEAD'));
+                goto not_crivero_prueba_aceptarSesion;
+            }
+
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'crivero_prueba_aceptarSesion')), array (  '_controller' => 'Crivero\\PruebaBundle\\Controller\\SesionController::aceptarSesionAction',));
+        }
+        not_crivero_prueba_aceptarSesion:
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }

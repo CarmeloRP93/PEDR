@@ -80,8 +80,8 @@ class __TwigTemplate_5f9211c3218098720272eb6469292043e517b7bc975fd024a40198a41b3
             </div>
 
 
-            <div class=\"collapse navbar-collapse navbar-ex1-collapse\">
-                <ul class=\"nav navbar-nav\">
+            <div class=\"collapse navbar-collapse navbar-ex1-collapse \">
+                <ul class=\"nav navbar-nav \">
                     <li><a href=\"";
         // line 29
         echo $this->env->getExtension('routing')->getUrl("crivero_prueba_clientes");
@@ -103,34 +103,44 @@ class __TwigTemplate_5f9211c3218098720272eb6469292043e517b7bc975fd024a40198a41b3
         echo $this->env->getExtension('routing')->getUrl("crivero_prueba_sesiones");
         echo "\">Sesiones</a></li>
                 </ul>
-
+                
+                ";
+        // line 36
+        if ($this->env->getExtension('security')->isGranted("IS_AUTHENTICATED_FULLY")) {
+            // line 37
+            echo "                    <ul class=\"nav navbar-nav navbar-right\">
+                        <li><a href = #>Perfil</a></li>
+                        <li><a href=\"";
+            // line 39
+            echo $this->env->getExtension('routing')->getPath("crivero_prueba_logout");
+            echo "\">Logout</a></li>
+                    </ul>
+                ";
+        }
+        // line 42
+        echo "
                 <form class=\"navbar-form navbar-center\" role=\"search\">
                     <div class=\"form-group\">
-                        <input type=\"text\" class=\"form-control\" placeholder=\"Nombre, cancha...\">
+                        <input type=\"text\" class=\"form-control\" placeholder=\"Nombre, cancha...\" style=\"wi\">
                     </div>
                     <button type=\"submit\" class=\"btn btn-default\">Buscar</button>
  
-                    <a href = #>Perfil</a>
-                    <a href = \"";
-        // line 43
-        echo $this->env->getExtension('routing')->getUrl("crivero_prueba_home");
-        echo "\">Log out</a>
                 </form>
             </div>
         </nav>
 ";
     }
 
-    // line 48
+    // line 53
     public function block_body($context, array $blocks = array())
     {
-        // line 49
+        // line 54
         echo "    <div id=\"pagina\" class=\"cfix\">
         <div id =\"contenido\">
             ";
-        // line 51
+        // line 56
         $this->displayBlock('contenido', $context, $blocks);
-        // line 53
+        // line 58
         echo "        </div>
 
     </div>
@@ -138,10 +148,10 @@ class __TwigTemplate_5f9211c3218098720272eb6469292043e517b7bc975fd024a40198a41b3
 ";
     }
 
-    // line 51
+    // line 56
     public function block_contenido($context, array $blocks = array())
     {
-        // line 52
+        // line 57
         echo "            ";
     }
 
@@ -157,6 +167,6 @@ class __TwigTemplate_5f9211c3218098720272eb6469292043e517b7bc975fd024a40198a41b3
 
     public function getDebugInfo()
     {
-        return array (  145 => 52,  142 => 51,  134 => 53,  132 => 51,  128 => 49,  125 => 48,  116 => 43,  103 => 33,  99 => 32,  95 => 31,  91 => 30,  87 => 29,  68 => 12,  65 => 11,  60 => 8,  57 => 7,  50 => 4,  47 => 3,  41 => 2,  11 => 1,);
+        return array (  155 => 57,  152 => 56,  144 => 58,  142 => 56,  138 => 54,  135 => 53,  121 => 42,  115 => 39,  111 => 37,  109 => 36,  103 => 33,  99 => 32,  95 => 31,  91 => 30,  87 => 29,  68 => 12,  65 => 11,  60 => 8,  57 => 7,  50 => 4,  47 => 3,  41 => 2,  11 => 1,);
     }
 }

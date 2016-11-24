@@ -125,46 +125,31 @@ class __TwigTemplate_6fe83b972abb4793cd49d2aad863166b9c3531263d8575c667bdf691973
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "telefono", array()), 'errors');
         echo "</span>
                 </div>
-                
-                <div class=\"form-group\">
-                    ";
-        // line 42
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "imagen", array()), 'label');
-        echo "
-                    ";
-        // line 43
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "imagen", array()), 'widget', array("attr" => array("class" => "form-control")));
-        echo "
-                    <span class=\"text-danger\">";
-        // line 44
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "imagen", array()), 'errors');
-        echo "</span>
-                </div>
 
                 <div class=\"form-group\">
                     ";
-        // line 48
+        // line 42
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "tipo", array()), 'label');
         echo "
                     ";
-        // line 49
+        // line 43
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "tipo", array()), 'widget', array("attr" => array("class" => "form-control")));
         echo "
                     <span class=\"text-danger\">";
-        // line 50
+        // line 44
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "tipo", array()), 'errors');
         echo "</span>
                 </div>
 
 \t\t    <p>
 \t\t        ";
-        // line 54
+        // line 48
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "confirmar", array()), 'widget', array("label" => "Confirmar", "attr" => array("class" => "btn btn-success")));
         echo "
 \t\t    </p>                
                     
                 ";
-        // line 57
+        // line 51
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_end');
         echo "
 ";
@@ -182,6 +167,6 @@ class __TwigTemplate_6fe83b972abb4793cd49d2aad863166b9c3531263d8575c667bdf691973
 
     public function getDebugInfo()
     {
-        return array (  168 => 57,  162 => 54,  155 => 50,  151 => 49,  147 => 48,  140 => 44,  136 => 43,  132 => 42,  125 => 38,  121 => 37,  117 => 36,  110 => 32,  106 => 31,  102 => 30,  95 => 26,  91 => 25,  87 => 24,  80 => 20,  76 => 19,  72 => 18,  64 => 13,  60 => 12,  56 => 11,  50 => 8,  46 => 6,  43 => 5,  37 => 3,  11 => 1,);
+        return array (  153 => 51,  147 => 48,  140 => 44,  136 => 43,  132 => 42,  125 => 38,  121 => 37,  117 => 36,  110 => 32,  106 => 31,  102 => 30,  95 => 26,  91 => 25,  87 => 24,  80 => 20,  76 => 19,  72 => 18,  64 => 13,  60 => 12,  56 => 11,  50 => 8,  46 => 6,  43 => 5,  37 => 3,  11 => 1,);
     }
 }

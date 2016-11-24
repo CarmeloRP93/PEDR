@@ -12,10 +12,15 @@ use Crivero\PruebaBundle\Form\UsuariosType;
 class ClienteController extends Controller
 {
     
+    public function homeAction() {
+        return $this->render('CriveroPruebaBundle:Default:home.html.twig');
+    }
+    
     public function clientesAction()
     {
         $repository = $this->getDoctrine()->getRepository("CriveroPruebaBundle:Usuarios");
         $usuarios=$repository->findAll();
+        
        return $this->render('CriveroPruebaBundle:Default:clientes.html.twig', array("usuarios"=>$usuarios));
     }
     

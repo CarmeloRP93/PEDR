@@ -65,29 +65,39 @@ class __TwigTemplate_c1f45e323d9a32191de182f8e8607ca67573ae047a5ac0aa37a6b34765b
         foreach ($context['_seq'] as $context["_key"] => $context["sesion"]) {
             // line 10
             echo "        ";
-            $context["nombre"] = $this->getAttribute($context["sesion"], "nombre", array());
-            // line 11
-            echo "        ";
             if (($this->getAttribute($context["sesion"], "cliente", array()) != null)) {
-                // line 12
-                echo "        ";
-                $context["nombre"] = $this->getAttribute($context["sesion"], "cliente", array());
+                // line 11
+                echo "            <a href=\"";
+                echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getUrl("crivero_prueba_sesion", array("id" => $this->getAttribute($context["sesion"], "id", array()))), "html", null, true);
+                echo "\" class=\"fila ";
+                echo twig_escape_filter($this->env, twig_cycle(array(0 => "par", 1 => "impar"), $this->getAttribute($context["loop"], "index", array())), "html", null, true);
+                echo "\"> Sesion ";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["sesion"], "id", array()), "html", null, true);
+                echo ": ";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["sesion"], "cliente", array()), "html", null, true);
+                echo "/";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["sesion"], "nombre", array()), "html", null, true);
+                echo " - ";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["sesion"], "estado", array()), "html", null, true);
+                echo " </a>
+        ";
+            } else {
                 // line 13
-                echo "        ";
+                echo "            <a href=\"";
+                echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getUrl("crivero_prueba_sesion", array("id" => $this->getAttribute($context["sesion"], "id", array()))), "html", null, true);
+                echo "\" class=\"fila ";
+                echo twig_escape_filter($this->env, twig_cycle(array(0 => "par", 1 => "impar"), $this->getAttribute($context["loop"], "index", array())), "html", null, true);
+                echo "\"> Sesion ";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["sesion"], "id", array()), "html", null, true);
+                echo ":  ";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["sesion"], "nombre", array()), "html", null, true);
+                echo " - ";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["sesion"], "estado", array()), "html", null, true);
+                echo "</a>
+        ";
             }
-            // line 14
-            echo "        <a href=\"";
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getUrl("crivero_prueba_sesion", array("id" => $this->getAttribute($context["sesion"], "id", array()))), "html", null, true);
-            echo "\" class=\"fila ";
-            echo twig_escape_filter($this->env, twig_cycle(array(0 => "par", 1 => "impar"), $this->getAttribute($context["loop"], "index", array())), "html", null, true);
-            echo "\"> Sesion ";
-            echo twig_escape_filter($this->env, $this->getAttribute($context["sesion"], "id", array()), "html", null, true);
-            echo ":  ";
-            echo twig_escape_filter($this->env, (isset($context["nombre"]) ? $context["nombre"] : $this->getContext($context, "nombre")), "html", null, true);
-            echo " - ";
-            echo twig_escape_filter($this->env, $this->getAttribute($context["sesion"], "estado", array()), "html", null, true);
-            echo "</a>
-    ";
+            // line 15
+            echo "    ";
             ++$context['loop']['index0'];
             ++$context['loop']['index'];
             $context['loop']['first'] = false;
@@ -117,6 +127,6 @@ class __TwigTemplate_c1f45e323d9a32191de182f8e8607ca67573ae047a5ac0aa37a6b34765b
 
     public function getDebugInfo()
     {
-        return array (  104 => 16,  79 => 14,  76 => 13,  73 => 12,  70 => 11,  67 => 10,  50 => 9,  46 => 7,  43 => 6,  37 => 4,  11 => 2,);
+        return array (  114 => 16,  100 => 15,  86 => 13,  70 => 11,  67 => 10,  50 => 9,  46 => 7,  43 => 6,  37 => 4,  11 => 2,);
     }
 }
